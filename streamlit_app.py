@@ -19,7 +19,7 @@ if data is not None:
         
     col1=st.columns(1)
     fig=px.box(df['Price'], title="Boxplot of prices of diamonds with outliers", height=500)
-    col1.plotly_chart(fig)  
+    fig.show() 
     
     
     
