@@ -1,7 +1,7 @@
 import pandas as pd
 import numpy as np
 import streamlit as st
-import plotly as px
+import plotly.express as px
 
 st.title('Projekt zaliczeniowy z programowania dla analityki danych.')
 
@@ -18,7 +18,7 @@ if data is not None:
         st.dataframe(df_2.head(15))'''
         
     col1=st.columns(1)
-    fig=px.express.box(df['Price'], title="Boxplot of prices of diamonds with outliers", height=500)
+    fig=px.box(df['Price'], title="Boxplot of prices of diamonds with outliers", height=500)
     col1.plotly_chart(fig)  
     
     
