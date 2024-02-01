@@ -23,7 +23,8 @@ if data2 is not None:
     df_2 = pd.read_csv(data2, na_values=[" ", np.nan])
     st.dataframe(df_2.head(15))'''
     
-px.box(messy_data['Price'], title="Boxplot of prices of diamonds with outliers", height=500)
+
+#px.box(messy_data['Price'], title="Boxplot of prices of diamonds with outliers", height=500)
 
 
 
