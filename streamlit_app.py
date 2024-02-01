@@ -1,7 +1,7 @@
 import pandas as pd
 import numpy as np
 import streamlit as st
-import plotly.express as px
+import plotly as px
 
 st.title('Projekt zaliczeniowy z programowania dla analityki danych.')
 
@@ -24,7 +24,7 @@ if data2 is not None:
     st.dataframe(df_2.head(15))'''
     
 
-px.box(data['Price'], title="Boxplot of prices of diamonds with outliers", height=500)
+px.express.box(data['Price'], title="Boxplot of prices of diamonds with outliers", height=500)
 
 
 
