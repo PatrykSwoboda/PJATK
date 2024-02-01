@@ -18,7 +18,7 @@ if data is not None:
         st.dataframe(df_2.head(15))'''
         
     col1=st.columns(1)
-    fig=px.express.box(df[' price'], title="Boxplot of prices of diamonds with outliers", height=500)
+    fig=px.express.box(df['Price'], title="Boxplot of prices of diamonds with outliers", height=500)
     col1.plotly_chart(fig)  
     
     
