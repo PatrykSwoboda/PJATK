@@ -24,7 +24,7 @@ if data2 is not None:
     st.dataframe(df_2.head(15))'''
     
 
-#px.box(messy_data['Price'], title="Boxplot of prices of diamonds with outliers", height=500)
+px.box(data['Price'], title="Boxplot of prices of diamonds with outliers", height=500)
 
 
 
