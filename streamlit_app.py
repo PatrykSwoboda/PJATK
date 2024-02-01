@@ -4,7 +4,7 @@ import streamlit as st
 
 st.title('Projekt zaliczeniowy z programowania dla analityki danych.')
 
-st.markdown("#Czyszczenie danych")
+st.markdown("# Czyszczenie danych")
 
 data = st.file_uploader('Tu wrzuc swoje dane', type=['csv'])
 if data is not None:
