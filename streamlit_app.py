@@ -18,7 +18,7 @@ if data is not None:
         st.dataframe(df_2.head(15))'''
         
     
-    px.express.box(df[' price'], title="Boxplot of prices of diamonds with outliers", height=500)
+    st.pyplot(px.express.box(df[' price'], title="Boxplot of prices of diamonds with outliers", height=500))
     
     
 
