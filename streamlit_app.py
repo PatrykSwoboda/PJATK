@@ -1,7 +1,6 @@
 import pandas as pd
 import numpy as np
 import random
-import matplotlib.pyplot as plt
 import plotly.express as px
 import statsmodels.formula.api as smf
 from plotly.subplots import make_subplots
