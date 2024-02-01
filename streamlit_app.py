@@ -6,6 +6,7 @@ import plotly as px
 st.title('Projekt zaliczeniowy z programowania dla analityki danych.')
 
 data = st.file_uploader('Tu wrzuc swoje dane', type=['csv'])
+df = None
 if data is not None:
     df = pd.read_csv(data, na_values=[" ", np.nan])
     st.dataframe(df.head(15))
