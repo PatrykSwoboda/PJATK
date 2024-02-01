@@ -1,4 +1,3 @@
-plotly.express
-statsmodels.formula.api
-plotly.subplots
-plotly.graph_objects
+plotly
+statsmodels
+
