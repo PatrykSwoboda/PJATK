@@ -17,8 +17,10 @@ if data is not None:
         df_2 = pd.read_csv(data2, na_values=[" ", np.nan])
         st.dataframe(df_2.head(15))'''
         
+    col1=st.columns(1)
+    fig=px.express.box(df[' price'], title="Boxplot of prices of diamonds with outliers", height=500)
+    col1.plotly_chart(fig)
     
-    st.pyplot(px.express.box(df[' price'], title="Boxplot of prices of diamonds with outliers", height=500))
     
     
 
