@@ -6,5 +6,5 @@ import time
 
 data = st.file_uploader('Tu wrzuc swoje dane', type=['csv'])
 if data is not None:
-    df.pd.read_csv(data)
+    df = pd.read_csv(data)
     st.dataframe(df.head(10))
