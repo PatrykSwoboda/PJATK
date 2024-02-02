@@ -36,13 +36,13 @@ if data is not None:
     fig = make_subplots(rows=2, cols=4, subplot_titles=['Carat', 'Depth', 'Table', 'Price', 
                                                     'Dimension x', 'Dimension y', 'Dimension z'])
 
-    trace0 = go.Histogram(x=messy_data['Carat'], nbinsx=8)
-    trace1 = go.Histogram(x=messy_data['Depth'], nbinsx=8)
-    trace2 = go.Histogram(x=messy_data['Table'], nbinsx=8)
-    trace3 = go.Histogram(x=messy_data['Price'], nbinsx=8)
-    trace4 = go.Histogram(x=messy_data['Dimension_x'], nbinsx=8)
-    trace5 = go.Histogram(x=messy_data['Dimension_y'], nbinsx=8)
-    trace6 = go.Histogram(x=messy_data['Dimension_z'], nbinsx=8)
+    trace0 = go.Histogram(x=df['Carat'], nbinsx=8)
+    trace1 = go.Histogram(x=df['Depth'], nbinsx=8)
+    trace2 = go.Histogram(x=df['Table'], nbinsx=8)
+    trace3 = go.Histogram(x=df['Price'], nbinsx=8)
+    trace4 = go.Histogram(x=df['Dimension_x'], nbinsx=8)
+    trace5 = go.Histogram(x=df['Dimension_y'], nbinsx=8)
+    trace6 = go.Histogram(x=df['Dimension_z'], nbinsx=8)
 
     fig.append_trace(trace0, 1, 1)
     fig.append_trace(trace1, 1, 2)
