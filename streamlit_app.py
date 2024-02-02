@@ -37,17 +37,11 @@ if page == "Przygotowanie danych i wizualizacja danych":
             col1, col2=st.columns(2)
             fig=px.box(df['Price'], title="Boxplot of prices of diamonds without outliers", height=500)
             col1.plotly_chart(fig)
-
-            for a in range(100):
-                time.sleep(0.01)
-                my_bar.progress(a+1)
+            
             col1, col2=st.columns(2)
             fig=px.box(df[['Dimension_x', 'Dimension_y', 'Dimension_z', 'Carat']], title="Boxplots of dimensions and carat", height=500)
             col1.plotly_chart(fig)
 
-            for a in range(100):
-                time.sleep(0.01)
-                my_bar.progress(a+1)
             col1, col2=st.columns(2)
             fig=px.box(df[['Depth', 'Table']], title='Boxplots of depth and table of diamonds', height=500)
             col1.plotly_chart(fig)
@@ -90,18 +84,12 @@ if page == "Przygotowanie danych i wizualizacja danych":
                        title='Violin chart of diamond cuts dependent on price')
             col1.plotly_chart(fig)
 
-            for a in range(100):
-                time.sleep(0.01)
-                my_bar.progress(a+1)
             col1, col2=st.columns(2)
             fig = px.violin(categorics, x='Color', y='Price', orientation='v', 
                         title='Violin chart of diamond colors dependent on price')
             fig.update_layout(autosize=False, width=800, height=400)
             col1.plotly_chart(fig)
 
-            for a in range(100):
-                time.sleep(0.01)
-                my_bar.progress(a+1)
             col1, col2=st.columns(2)
             fig = px.violin(categorics, x='Clarity', y='Price', points='all', 
                        title='Violin chart of diamond clarity dependent on price')
