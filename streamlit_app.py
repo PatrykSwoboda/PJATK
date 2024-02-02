@@ -16,11 +16,12 @@ if data is not None:
 
 if page == "Przygotowanie danych i wizualizacja danych":
     st.markdown("## Czyszczenie danych")
-    st.code('messy_data["Clarity"] = messy_data["Clarity"].str.replace("i1", "I1").str.replace("si2", "SI2").str.replace("Si2", "SI2").str.replace("vvs1", "VVS1").str.replace("Vvs1", "VVS1").str.replace("if", "IF").str.replace("vvs2", "VVS2").str.replace("sI1", "SI1") \nmessy_data["Color"] = messy_data["Color"].str.replace("g", "G").str.replace("h", "H").str.replace("f", "F").str.replace("d", "D").str.replace("e", "E").str.replace("j", "J").str.replace("colorlEss", "ColorlEss").str.replace("ColorlEss", "Colorless") \nmessy_data["Cut"] = messy_data["Cut"].str.replace("premium", "Premium").str.replace("good", "Good").str.replace("fair", "Fair").str.replace("ideal", "Ideal").str.replace("very good", "Very Good").str.replace("Very good", "Very Good").str.replace("very Good", "Very Good")')
 
     st.markdown("#### Ujednolicanie zbioru")
+    st.code('messy_data["Clarity"] = messy_data["Clarity"].str.replace("i1", "I1").str.replace("si2", "SI2").str.replace("Si2", "SI2").str.replace("vvs1", "VVS1").str.replace("Vvs1", "VVS1").str.replace("if", "IF").str.replace("vvs2", "VVS2").str.replace("sI1", "SI1") \nmessy_data["Color"] = messy_data["Color"].str.replace("g", "G").str.replace("h", "H").str.replace("f", "F").str.replace("d", "D").str.replace("e", "E").str.replace("j", "J").str.replace("colorlEss", "ColorlEss").str.replace("ColorlEss", "Colorless") \nmessy_data["Cut"] = messy_data["Cut"].str.replace("premium", "Premium").str.replace("good", "Good").str.replace("fair", "Fair").str.replace("ideal", "Ideal").str.replace("very good", "Very Good").str.replace("Very good", "Very Good").str.replace("very Good", "Very Good")')
+    st.code('messy_data.rename(columns={"carat": "Carat", " clarity": "Clarity", " color": "Color", " cut": "Cut", " x dimension": "Dimension_x", " y dimension": "Dimension_y", " z dimension": "Dimension_z", " depth": "Depth", " table": "Table", " price": "Price"}, inplace=True)')
     
-    st.markdown("#### Sposoby uzupełniania braków danych")
+    st.markdown("#### Sposoby uzupełniania braków danych użyte w projekcie")
     st.code("messy_data['Dimension_x'] = messy_data['Dimension_x'].replace(np.nan, np.random.normal(5.88, 0.77)).round(2) \nmessy_data['Depth'] = messy_data['Depth'].replace(np.nan, messy_data['Depth'].mean()).round(2) \nmessy_data['Carat'] = messy_data['Carat'].apply(lambda x: my_list.pop(0) if pd.isna(x) else x)")
 
     st.markdown("## Wizualizacja rozrzutów i rozkładów zmiennych")
