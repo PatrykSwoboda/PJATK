@@ -89,6 +89,20 @@ if page == "Przygotowanie danych i wizualizacja danych":
     fig=px.imshow(cor, title='Heatmap as a correlation matrix of data', color_continuous_scale='amp', height=600)
     col1.plotly_chart(fig)
 
+    st.markdown("## Wykres średniej ceny w zależności od rodzaju cięcia diamentu")
+
+    mean_price_cut = df.groupby('Cut')['Price'].mean()
+
+    cut_list = df['Cut'].unique()
+    cut = st.selectbox("Wybierz rodzaj cięcia", cut_list) 
+
+    col1, col2 = st.columns(2)
+
+    fig = px.bar(df[df['Cut'] == cut], x = 'Cut', y = 'mean_price_cut', 
+                 title = 'Graph of average price by type of diamond cut')
+    col1.plotly_chart(fig,use_container_width = True)
+
+
 else:
     st.markdown("## Parametry modelu regresji liniowej")
     df['Dimension_x^2'] = df['Dimension_x']**2
