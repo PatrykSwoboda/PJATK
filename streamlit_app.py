@@ -26,7 +26,7 @@ if data is not None:
     col1.plotly_chart(fig)
 
     col1, col2=st.columns(2)
-    fig=px.box(messy_data[['Depth', 'Table']], title='Boxplots of depth and table of diamonds', height=500)
+    fig=px.box(df[['Depth', 'Table']], title='Boxplots of depth and table of diamonds', height=500)
     col1.plotly_chart(fig)
 
     categorics = messy_data[['Cut', 'Color', 'Clarity', 'Price']]
