@@ -16,6 +16,7 @@ if data is not None:
 
 if page == "Przygotowanie danych i wizualizacja danych":
     st.markdown("## Czyszczenie danych")
+    st.code('messy_data["Clarity"] = messy_data["Clarity"].str.replace("i1", "I1").str.replace("si2", "SI2").str.replace("Si2", "SI2").str.replace("vvs1", "VVS1").str.replace("Vvs1", "VVS1").str.replace("if", "IF").str.replace("vvs2", "VVS2").str.replace("sI1", "SI1") \nmessy_data["Color"] = messy_data["Color"].str.replace("g", "G").str.replace("h", "H").str.replace("f", "F").str.replace("d", "D").str.replace("e", "E").str.replace("j", "J").str.replace("colorlEss", "ColorlEss").str.replace("ColorlEss", "Colorless") \nmessy_data["Cut"] = messy_data["Cut"].str.replace("premium", "Premium").str.replace("good", "Good").str.replace("fair", "Fair").str.replace("ideal", "Ideal").str.replace("very good", "Very Good").str.replace("Very good", "Very Good").str.replace("very Good", "Very Good")')
 
     st.markdown("#### Ujednolicanie zbioru")
     
