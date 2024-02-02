@@ -29,7 +29,7 @@ if data is not None:
     fig=px.box(df[['Depth', 'Table']], title='Boxplots of depth and table of diamonds', height=500)
     col1.plotly_chart(fig)
 
-    categorics = messy_data[['Cut', 'Color', 'Clarity', 'Price']]
+    categorics = df[['Cut', 'Color', 'Clarity', 'Price']]
     
     col1, col2=st.columns(2)
     fig = px.violin(categorics, x='Cut', y='Price', points='all', box=True, 
