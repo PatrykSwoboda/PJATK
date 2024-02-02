@@ -14,6 +14,7 @@ if page == "Przygotowanie danych i wizualizacja danych":
     data = st.file_uploader('Importowanie pliku', type=['csv'])
     if data is not None:
         df = pd.read_csv(data, na_values=[" ", np.nan])
+        my_bar = st.progress(0)
         for a in range(100):
             time.sleep(0.5)
             my_bar.progress()
