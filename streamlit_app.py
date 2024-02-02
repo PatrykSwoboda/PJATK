@@ -10,12 +10,12 @@ st.title('Projekt zaliczeniowy z programowania dla analityki danych.')
 page = st.sidebar.selectbox('Wybierz stronę:', ['Start','Przygotowanie danych i wizualizacja danych', 'Model regresji liniowej'])
 data = st.file_uploader('Importowanie pliku', type=['csv'])
 
+if page == "Start":
+    st.markdown("## Celem projektu jest zbudowanie jak najlepszego modelu regresji liniowej na podstawie danych dot. diamentów.")
+
 if data is not None:
     df = pd.read_csv(data, na_values=[" ", np.nan])
     st.dataframe(df.head(15))
-
-if page == "Start":
-    st.markdown("## Celem projektu jest zbudowanie jak najlepszego modelu regresji liniowej na podstawie danych dot. diamentów.")
 
 elif page == "Przygotowanie danych i wizualizacja danych":
     st.markdown("## Czyszczenie danych")
