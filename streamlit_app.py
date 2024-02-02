@@ -7,18 +7,17 @@ import plotly.graph_objects as go
 import time
 
 st.title('Projekt zaliczeniowy z programowania dla analityki danych.')
-page = st.sidebar.selectbox('Wybierz stronę:', ['Przygotowanie danych i wizualizacja danych', 'Model regresji liniowej'])
+page = st.sidebar.selectbox('Wybierz stronę:', ['Start','Przygotowanie danych i wizualizacja danych', 'Model regresji liniowej'])
 data = st.file_uploader('Importowanie pliku', type=['csv'])
+
 if data is not None:
     df = pd.read_csv(data, na_values=[" ", np.nan])
-    my_bar = st.progress(0)
-    for a in range(100):
-        time.sleep(0.01)
-        my_bar.progress(a+1)
     st.dataframe(df.head(15))
 
-if page == "Przygotowanie danych i wizualizacja danych":
-    
+if page == "Start":
+    st.markdown("## Celem projektu jest zbudowanie jak najlepszego modelu regresji liniowej na podstawie danych dot. diamentów.")
+
+elif page == "Przygotowanie danych i wizualizacja danych":
     st.markdown("## Czyszczenie danych")
 
     st.markdown("#### Ujednolicanie zbioru")
@@ -66,7 +65,6 @@ if page == "Przygotowanie danych i wizualizacja danych":
         col1.plotly_chart(fig)
 
     else:
-
         categorics = df[['Cut', 'Color', 'Clarity', 'Price']]
 
         col1, col2=st.columns(2)
