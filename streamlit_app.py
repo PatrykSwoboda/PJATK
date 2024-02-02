@@ -12,7 +12,7 @@ if page == "Przygotowanie danych i wizualizacja danych":
 
     data = st.file_uploader('Importowanie pliku', type=['csv'])
     if data is not None:
-        df = pd.read_csv(data, sep=';', na_values=[" ", np.nan])
+        df = pd.read_csv(data, na_values=[" ", np.nan])
         st.dataframe(df.head(15))
         
         st.markdown("## Czyszczenie danych")
