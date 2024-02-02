@@ -30,9 +30,6 @@ if page == "Przygotowanie danych i wizualizacja danych":
 
     status = st.radio("Wybierz typ wykresu", ('Wykres pudełkowy', 'Histogram', 'Wykres skrzypcowy'))
     if status == 'Wykres pudełkowy':
-        for a in range(100):
-            time.sleep(0.01)
-            my_bar.progress(a+1)
         col1, col2=st.columns(2)
         fig=px.box(df['Price'], title="Boxplot of prices of diamonds without outliers", height=500)
         col1.plotly_chart(fig)
@@ -46,9 +43,6 @@ if page == "Przygotowanie danych i wizualizacja danych":
         col1.plotly_chart(fig)
 
     elif status == 'Histogram':
-        for a in range(100):
-            time.sleep(0.01)
-            my_bar.progress(a+1)
         col1, col2=st.columns(2)
         fig = make_subplots(rows=2, cols=4, subplot_titles=['Carat', 'Depth', 'Table', 'Price', 
                             'Dimension x', 'Dimension y', 'Dimension z'])
@@ -75,9 +69,6 @@ if page == "Przygotowanie danych i wizualizacja danych":
 
         categorics = df[['Cut', 'Color', 'Clarity', 'Price']]
 
-        for a in range(100):
-            time.sleep(0.01)
-            my_bar.progress(a+1)
         col1, col2=st.columns(2)
         fig = px.violin(categorics, x='Cut', y='Price', points='all', box=True, 
                    title='Violin chart of diamond cuts dependent on price')
