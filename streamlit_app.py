@@ -97,7 +97,7 @@ if page == "Przygotowanie danych i wizualizacja danych":
     col1, col2 = st.columns(2)
 
     fig = px.scatter(df[df['Cut'] == cut], x = 'Clarity', y = 'Price', 
-                     title = 'Spot chart of clarity, price and type of diamond cut')
+                     title = 'Spot chart of clarity, price and type of cut')
     col1.plotly_chart(fig,use_container_width = True)
 
 
