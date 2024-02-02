@@ -91,7 +91,7 @@ else:
     df['Dimension_x^2'] = df['Dimension_x']**2
 
     model = smf.ols(formula='Price ~ I(Dimension_x**2) + C(Clarity)', data=df).fit()
-    print(model.summary())
+    st.write(model.summary())
     
     col1, col2=st.columns(2)
     fig = px.scatter(df, "Price", "Dimension_x^2", "Clarity", trendline="ols", trendline_scope="overall", 
