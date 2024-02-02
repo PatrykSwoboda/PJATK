@@ -4,6 +4,7 @@ import streamlit as st
 import plotly.express as px
 from plotly.subplots import make_subplots
 import plotly.graph_objects as go
+import statsmodels.formula.api as smf
 import time
 
 st.title('Projekt zaliczeniowy z programowania dla analityki danych.')
@@ -85,3 +86,9 @@ if page == "Przygotowanie danych i wizualizacja danych":
     col1, col2=st.columns(2)
     fig=px.imshow(cor, title='Heatmap as a correlation matrix of data', color_continuous_scale='amp', height=600)
     col1.plotly_chart(fig)
+
+else:
+    df['Dimension_x^2'] = df['Dimension_x']**2
+
+    model = smf.ols(formula='Price ~ I(Dimension_x**2) + C(Clarity)', data=messy_data).fit()
+    print(model.summary())
