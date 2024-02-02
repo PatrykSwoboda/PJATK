@@ -94,3 +94,9 @@ else:
     fig = px.scatter(df, "Price", "Dimension_x^2", "Clarity", trendline="ols", trendline_scope="overall", 
            title="Regression line of diamond prices depended for squared length and clarity", height=600)
     col1.plotly_chart(fig)
+
+    col1, col2=st.columns(2)
+    fig = px.scatter(messy_data, "Price", "residuals", 
+                     title="Model residuals plot of year vs squared length and clarity", height=600)
+    fig.update_yaxes({'zerolinecolor':'red'})
+    col1.plotly_chart(fig)
