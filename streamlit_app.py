@@ -13,6 +13,9 @@ if page == "Przygotowanie danych i wizualizacja danych":
     data = st.file_uploader('Importowanie pliku', type=['csv'])
     if data is not None:
         df = pd.read_csv(data, na_values=[" ", np.nan])
+        for a in range(100):
+            time.sleep(0.5)
+            my_bar.progress()
         st.dataframe(df.head(15))
         
         st.markdown("## Czyszczenie danych")
@@ -89,5 +92,7 @@ if page == "Przygotowanie danych i wizualizacja danych":
         col1, col2=st.columns(2)
         fig=px.imshow(cor, title='Heatmap as a correlation matrix of data', color_continuous_scale='amp', height=600)
         col1.plotly_chart(fig)
+else:
+    
 
 
