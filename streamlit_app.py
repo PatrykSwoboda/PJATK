@@ -11,15 +11,13 @@ page = st.sidebar.selectbox('Wybierz stronę:', ['Przygotowanie danych i wizuali
 data = st.file_uploader('Importowanie pliku', type=['csv'])
 if data is not None:
     df = pd.read_csv(data, na_values=[" ", np.nan])
-
-if page == "Przygotowanie danych i wizualizacja danych":
-    
     my_bar = st.progress(0)
     for a in range(100):
         time.sleep(0.01)
         my_bar.progress(a+1)
-        
-    st.dataframe(df.head(15))
+        st.dataframe(df.head(15))
+
+if page == "Przygotowanie danych i wizualizacja danych":
     
     st.markdown("## Czyszczenie danych")
 
