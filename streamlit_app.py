@@ -88,18 +88,31 @@ if page == "Przygotowanie danych i wizualizacja danych":
     col1.plotly_chart(fig)
 
 else:
+    st.markdown("## Parametry modelu regresji liniowej")
     df['Dimension_x^2'] = df['Dimension_x']**2
 
     model = smf.ols(formula='Price ~ I(Dimension_x**2) + C(Clarity)', data=df).fit()
     st.write(model.summary())
+
+    st.markdown("## Wykres modelu regresji liniowej")
+
+    my_bar = st.progress(0)
+    for a in range(100):
+        time.sleep(0.01)
+        my_bar.progress(a+1)
     
     col1, col2=st.columns(2)
     fig = px.scatter(df, "Price", "Dimension_x^2", "Clarity", trendline="ols", trendline_scope="overall", 
            title="Regression line of diamond prices depended for squared length and clarity", height=600)
     col1.plotly_chart(fig)
 
+    st.markdown("## Wykres reszt modelu")
     df['residuals'] = model.resid
 
+    for a in range(100):
+        time.sleep(0.01)
+        my_bar.progress(a+1)
+    
     col1, col2=st.columns(2)
     fig = px.scatter(df, "Price", "residuals", 
                      title="Model residuals plot of year vs squared length and clarity", height=600)
