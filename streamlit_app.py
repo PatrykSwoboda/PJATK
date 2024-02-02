@@ -92,7 +92,3 @@ if page == "Przygotowanie danych i wizualizacja danych":
         col1, col2=st.columns(2)
         fig=px.imshow(cor, title='Heatmap as a correlation matrix of data', color_continuous_scale='amp', height=600)
         col1.plotly_chart(fig)
-else:
-    
-
-
