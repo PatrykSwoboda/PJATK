@@ -131,4 +131,4 @@ else:
     fig = px.scatter(df, "Price", "residuals", 
                      title="Model residuals plot of year vs squared length and clarity", height=600)
     fig.update_yaxes({'zerolinecolor':'red'})
-    col1.plotly_chart(fig)
+    col1.plotly_chart(fig) 
