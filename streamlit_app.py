@@ -4,7 +4,7 @@ import streamlit as st
 import plotly.express as px
 
 st.title('Projekt zaliczeniowy z programowania dla analityki danych.')
-page = st.sidebar.selectbox('Wybierz stronę:', [''])
+page = st.sidebar.selectbox('Wybierz stronę:', ['Przygotowanie danych i wizualizacja danych', 'Model regresji liniowej'])
 
 data = st.file_uploader('Tu wrzuc swoje dane', type=['csv'])
 if data is not None:
@@ -12,8 +12,9 @@ if data is not None:
     st.dataframe(df.head(15))
     
     st.markdown("## Czyszczenie danych")
+    st.markdown("#### Sposoby uzupełniania braków danych")
     
-    st.code("messy_data['Dimension_x'] = messy_data['Dimension_x'].replace(np.nan, np.random.normal(5.88, 0.77)).round(2)")
+    st.code("messy_data['Dimension_x'] = messy_data['Dimension_x'].replace(np.nan, np.random.normal(5.88, 0.77)).round(2) \nmessy_data['Depth'] = messy_data['Depth'].replace(np.nan, messy_data['Depth'].mean()).round(2) \nmessy_data['Carat'] = messy_data['Carat'].apply(lambda x: my_list.pop(0) if pd.isna(x) else x)")
 
     st.markdown("## Wizualizacja rozrzutów i rozkładów zmiennych")
     
