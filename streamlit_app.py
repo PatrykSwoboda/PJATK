@@ -34,7 +34,7 @@ if data is not None:
 
     col1, col2=st.columns(2)
     fig = make_subplots(rows=2, cols=4, subplot_titles=['Carat', 'Depth', 'Table', 'Price', 
-                                                    'Dimension x', 'Dimension y', 'Dimension z'])
+                        'Dimension x', 'Dimension y', 'Dimension z'], x_title = "xd")
 
     trace0 = go.Histogram(x=df['Carat'], nbinsx=8)
     trace1 = go.Histogram(x=df['Depth'], nbinsx=8)
