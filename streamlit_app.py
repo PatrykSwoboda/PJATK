@@ -4,6 +4,7 @@ import streamlit as st
 import plotly.express as px
 from plotly.subplots import make_subplots
 import plotly.graph_objects as go
+import time
 
 st.title('Projekt zaliczeniowy z programowania dla analityki danych.')
 page = st.sidebar.selectbox('Wybierz stronę:', ['Przygotowanie danych i wizualizacja danych', 'Model regresji liniowej'])
