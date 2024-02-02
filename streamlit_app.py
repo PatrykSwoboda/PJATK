@@ -98,7 +98,7 @@ if page == "Przygotowanie danych i wizualizacja danych":
 
     col1, col2 = st.columns(2)
 
-    fig = px.bar(df[df['Cut'] == cut], x = 'Cut', y = 'Price', 
+    fig = px.scatter(df[df['Cut'] == cut], x = 'Cut', y = 'Price', 
                  title = 'Graph of average price by type of diamond cut')
     col1.plotly_chart(fig,use_container_width = True)
 
