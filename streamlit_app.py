@@ -17,7 +17,7 @@ if page == "Przygotowanie danych i wizualizacja danych":
         my_bar = st.progress(0)
         for a in range(100):
             time.sleep(0.01)
-            my_bar.progress(p+1)
+            my_bar.progress(a+1)
         st.dataframe(df.head(15))
         
         st.markdown("## Czyszczenie danych")
