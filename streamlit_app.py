@@ -2,11 +2,13 @@ import pandas as pd
 import numpy as np
 import streamlit as st
 import plotly.express as px
+from plotly.subplots import make_subplots
+import plotly.graph_objects as go
 
 st.title('Projekt zaliczeniowy z programowania dla analityki danych.')
 page = st.sidebar.selectbox('Wybierz stronę:', ['Przygotowanie danych i wizualizacja danych', 'Model regresji liniowej'])
 
-data = st.file_uploader('Tu wrzuc swoje dane', type=['csv'])
+data = st.file_uploader('Importowanie pliku', type=['csv'])
 if data is not None:
     df = pd.read_csv(data, na_values=[" ", np.nan])
     st.dataframe(df.head(15))
@@ -28,6 +30,28 @@ if data is not None:
 
     col1, col2=st.columns(2)
     fig=px.box(df[['Depth', 'Table']], title='Boxplots of depth and table of diamonds', height=500)
+    col1.plotly_chart(fig)
+
+    col1, col2=st.columns(2)
+    fig = make_subplots(rows=2, cols=4, subplot_titles=['Carat', 'Depth', 'Table', 'Price', 
+                                                    'Dimension x', 'Dimension y', 'Dimension z'])
+
+    trace0 = go.Histogram(x=messy_data['Carat'], nbinsx=8)
+    trace1 = go.Histogram(x=messy_data['Depth'], nbinsx=8)
+    trace2 = go.Histogram(x=messy_data['Table'], nbinsx=8)
+    trace3 = go.Histogram(x=messy_data['Price'], nbinsx=8)
+    trace4 = go.Histogram(x=messy_data['Dimension_x'], nbinsx=8)
+    trace5 = go.Histogram(x=messy_data['Dimension_y'], nbinsx=8)
+    trace6 = go.Histogram(x=messy_data['Dimension_z'], nbinsx=8)
+
+    fig.append_trace(trace0, 1, 1)
+    fig.append_trace(trace1, 1, 2)
+    fig.append_trace(trace2, 1, 3)
+    fig.append_trace(trace3, 1, 4)
+    fig.append_trace(trace4, 2, 1)
+    fig.append_trace(trace5, 2, 2)
+    fig.append_trace(trace6, 2, 3)
+
     col1.plotly_chart(fig)
 
     categorics = df[['Cut', 'Color', 'Clarity', 'Price']]
