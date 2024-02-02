@@ -34,7 +34,7 @@ if data is not None:
 
     col1, col2=st.columns(2)
     fig = make_subplots(rows=2, cols=4, subplot_titles=['Carat', 'Depth', 'Table', 'Price', 
-                        'Dimension x', 'Dimension y', 'Dimension z'], x_title = "xd")
+                        'Dimension x', 'Dimension y', 'Dimension z'])
 
     trace0 = go.Histogram(x=df['Carat'], nbinsx=8)
     trace1 = go.Histogram(x=df['Depth'], nbinsx=8)
@@ -72,5 +72,11 @@ if data is not None:
                title='Violin chart of diamond clarity dependent on price')
     col1.plotly_chart(fig)
 
+    st.markdown("## Macierz korelacji")
+
+    cor = df[['Carat','Dimension_x','Dimension_y','Dimension_z','Depth','Table','Price']].corr()
+    col1, col2=st.columns(2)
+    fig=px.imshow(cor, title='Heatmap as a correlation matrix of data', color_continuous_scale='amp', height=600)
+    col1.plotly_chart(fig)
 
 
