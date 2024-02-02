@@ -39,7 +39,7 @@ if data is not None:
     col1, col2=st.columns(2)
     fig = px.violin(categorics, x='Color', y='Price', orientation='v', 
                 title='Violin chart of diamond colors dependent on price')
-    fig.update_layout(autosize=False, width=1000, height=400)
+    fig.update_layout(autosize=False, width=800, height=400)
     col1.plotly_chart(fig)
 
     col1, col2=st.columns(2)
