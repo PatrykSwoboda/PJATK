@@ -15,7 +15,7 @@ if data is not None:
     for a in range(100):
         time.sleep(0.01)
         my_bar.progress(a+1)
-        st.dataframe(df.head(15))
+    st.dataframe(df.head(15))
 
 if page == "Przygotowanie danych i wizualizacja danych":
     
